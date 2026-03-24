@@ -21,6 +21,7 @@ struct FileTreeWidgetItem
     QTreeWidgetItem *suffixItem;
 
     FileTreeWidgetItem(const QFileInfo &fileInfo);
+private:
     QTreeWidgetItem* createSubitem(const QString &text) const;
     QList<QTreeWidgetItem*> children() const;
 };
