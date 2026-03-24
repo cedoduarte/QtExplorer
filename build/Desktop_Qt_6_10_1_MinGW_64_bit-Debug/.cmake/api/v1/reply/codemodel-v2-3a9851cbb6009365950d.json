@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-0302ca85a6aa78677805.json",
+					"jsonFile" : "directory-.-Debug-6d396487295c8bff3018.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "QtExplorer::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-QtExplorer-Debug-a7b8933b3acb465fcddf.json",
+					"jsonFile" : "target-QtExplorer-Debug-2502ed0e4941086b0a1f.json",
 					"name" : "QtExplorer",
 					"projectIndex" : 0
 				},

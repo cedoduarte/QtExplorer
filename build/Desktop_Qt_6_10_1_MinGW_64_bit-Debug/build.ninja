@@ -81,6 +81,14 @@ build CMakeFiles/QtExplorer.dir/diskusage.cpp.obj: CXX_COMPILER__QtExplorer_unsc
   OBJECT_DIR = CMakeFiles\QtExplorer.dir
   OBJECT_FILE_DIR = CMakeFiles\QtExplorer.dir
 
+build CMakeFiles/QtExplorer.dir/filetreewidgetitem.cpp.obj: CXX_COMPILER__QtExplorer_unscanned_Debug C$:/QtProjects/QtExplorer/filetreewidgetitem.cpp || cmake_object_order_depends_target_QtExplorer
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\QtExplorer.dir\filetreewidgetitem.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/QtProjects/QtExplorer/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/QtExplorer_autogen/include -isystem C:/Qt/6.10.1/mingw_64/include/QtCore -isystem C:/Qt/6.10.1/mingw_64/include -isystem C:/Qt/6.10.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.10.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.10.1/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\QtExplorer.dir
+  OBJECT_FILE_DIR = CMakeFiles\QtExplorer.dir
+
 build CMakeFiles/QtExplorer.dir/QtExplorer_autogen/EWIEGA46WW/qrc_res.cpp.obj: CXX_COMPILER__QtExplorer_unscanned_Debug C$:/QtProjects/QtExplorer/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/QtExplorer_autogen/EWIEGA46WW/qrc_res.cpp || cmake_object_order_depends_target_QtExplorer
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\QtExplorer.dir\QtExplorer_autogen\EWIEGA46WW\qrc_res.cpp.obj.d
@@ -97,7 +105,7 @@ build CMakeFiles/QtExplorer.dir/QtExplorer_autogen/EWIEGA46WW/qrc_res.cpp.obj: C
 #############################################
 # Link the executable QtExplorer.exe
 
-build QtExplorer.exe: CXX_EXECUTABLE_LINKER__QtExplorer_Debug CMakeFiles/QtExplorer.dir/QtExplorer_autogen/mocs_compilation.cpp.obj CMakeFiles/QtExplorer.dir/main.cpp.obj CMakeFiles/QtExplorer.dir/mainwindow.cpp.obj CMakeFiles/QtExplorer.dir/diskusage.cpp.obj CMakeFiles/QtExplorer.dir/QtExplorer_autogen/EWIEGA46WW/qrc_res.cpp.obj | C$:/Qt/6.10.1/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.10.1/mingw_64/lib/libQt6Gui.a C$:/Qt/6.10.1/mingw_64/lib/libQt6Core.a C$:/Qt/6.10.1/mingw_64/lib/libQt6EntryPoint.a || QtExplorer_autogen QtExplorer_autogen_timestamp_deps
+build QtExplorer.exe: CXX_EXECUTABLE_LINKER__QtExplorer_Debug CMakeFiles/QtExplorer.dir/QtExplorer_autogen/mocs_compilation.cpp.obj CMakeFiles/QtExplorer.dir/main.cpp.obj CMakeFiles/QtExplorer.dir/mainwindow.cpp.obj CMakeFiles/QtExplorer.dir/diskusage.cpp.obj CMakeFiles/QtExplorer.dir/filetreewidgetitem.cpp.obj CMakeFiles/QtExplorer.dir/QtExplorer_autogen/EWIEGA46WW/qrc_res.cpp.obj | C$:/Qt/6.10.1/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.10.1/mingw_64/lib/libQt6Gui.a C$:/Qt/6.10.1/mingw_64/lib/libQt6Core.a C$:/Qt/6.10.1/mingw_64/lib/libQt6EntryPoint.a || QtExplorer_autogen QtExplorer_autogen_timestamp_deps
   FLAGS = -g
   LINK_FLAGS = -mwindows
   LINK_LIBRARIES = C:/Qt/6.10.1/mingw_64/lib/libQt6Widgets.a  C:/Qt/6.10.1/mingw_64/lib/libQt6Gui.a  C:/Qt/6.10.1/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  C:/Qt/6.10.1/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32

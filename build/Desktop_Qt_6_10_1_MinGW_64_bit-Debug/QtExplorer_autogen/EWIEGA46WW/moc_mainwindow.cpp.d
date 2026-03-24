@@ -2,6 +2,7 @@ C:/QtProjects/QtExplorer/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/QtExplorer_a
   C:/QtProjects/QtExplorer/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/QtExplorer_autogen/moc_predefs.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/QFileInfo \
   C:/Qt/6.10.1/mingw_64/include/QtCore/QModelIndex \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/QString \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q20iterator.h \
@@ -414,4 +415,7 @@ C:/QtProjects/QtExplorer/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/QtExplorer_a
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
-  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h
+  C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
+  C:/QtProjects/QtExplorer/additionalinfo.h \
+  C:/QtProjects/QtExplorer/globalenums.h \
+  C:/QtProjects/QtExplorer/location_t.h

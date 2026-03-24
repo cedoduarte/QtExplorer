@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "location_t.h"
+
 #include <QMainWindow>
 #include <vector>
 #include <optional>
@@ -23,57 +25,6 @@ namespace Ui
 class MainWindow;
 }
 
-enum LocationType
-{
-    DIRECTORY,
-    DRIVE
-};
-
-enum LocationRoles
-{
-    LocationRole = Qt::UserRole + 1
-};
-
-enum FileTreeRoles
-{
-    FilePathRole = Qt::UserRole + 1
-};
-
-struct AdditionalInfo
-{
-    QString fileSystem;
-    qint64 bytesTotal;
-    qint64 bytesAvailable;
-};
-
-struct Location
-{
-    LocationType locationType;
-    QString displayText;
-    QString iconPath;
-    QString path;
-    std::optional<AdditionalInfo> additionalInfo;
-};
-
-struct FileTreeWidgetItem
-{
-    QTreeWidgetItem *topLevelFileItem;
-    QTreeWidgetItem *pathItem;
-    QTreeWidgetItem *birthTimeItem;
-    QTreeWidgetItem *groupItem;
-    QTreeWidgetItem *isExecutableItem;
-    QTreeWidgetItem *isHiddenItem;
-    QTreeWidgetItem *lastModifiedItem;
-    QTreeWidgetItem *lastReadItem;
-    QTreeWidgetItem *ownerItem;
-    QTreeWidgetItem *sizeItem;
-    QTreeWidgetItem *suffixItem;
-
-    FileTreeWidgetItem(const QFileInfo &fileInfo);
-    QTreeWidgetItem* createSubitem(const QString &text) const;
-    QList<QTreeWidgetItem*> children() const;
-};
-
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -90,7 +41,7 @@ private:
     bool fileExistsInTreeWidget(const QString &absoluteFilePath) const;
     void appendDrives();
     void initDiskUsageBar();
-    void displayDiskUsage(const Location &selectedLocation);
+    void displayDiskUsage(const Location_t &selectedLocation);
     void initFileModel();
     void connectSlots();
     void populateLocationList();
@@ -100,7 +51,7 @@ private:
     Ui::MainWindow *ui;
     QProgressBar *m_diskBar;
     QFileSystemModel *m_fileModel;
-    std::vector<Location> m_locationList;
+    std::vector<Location_t> m_locationList;
 };
 
 #endif // MAINWINDOW_H

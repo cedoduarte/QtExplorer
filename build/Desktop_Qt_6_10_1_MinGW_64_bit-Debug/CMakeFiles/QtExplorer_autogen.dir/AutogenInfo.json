@@ -358,9 +358,33 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/QtProjects/QtExplorer/additionalinfo.h",
+			"MU",
+			"EWIEGA46WW/moc_additionalinfo.cpp",
+			null
+		],
+		[
 			"C:/QtProjects/QtExplorer/diskusage.h",
 			"MU",
 			"EWIEGA46WW/moc_diskusage.cpp",
+			null
+		],
+		[
+			"C:/QtProjects/QtExplorer/filetreewidgetitem.h",
+			"MU",
+			"EWIEGA46WW/moc_filetreewidgetitem.cpp",
+			null
+		],
+		[
+			"C:/QtProjects/QtExplorer/globalenums.h",
+			"MU",
+			"EWIEGA46WW/moc_globalenums.cpp",
+			null
+		],
+		[
+			"C:/QtProjects/QtExplorer/location_t.h",
+			"MU",
+			"EWIEGA46WW/moc_location_t.cpp",
 			null
 		],
 		[
@@ -443,6 +467,7 @@
 	"SOURCES" : 
 	[
 		[ "C:/QtProjects/QtExplorer/diskusage.cpp", "MU", null ],
+		[ "C:/QtProjects/QtExplorer/filetreewidgetitem.cpp", "MU", null ],
 		[ "C:/QtProjects/QtExplorer/main.cpp", "MU", null ],
 		[ "C:/QtProjects/QtExplorer/mainwindow.cpp", "MU", null ]
 	],
