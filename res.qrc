@@ -11,5 +11,11 @@
         <file>icons/temp.png</file>
         <file>icons/computer.png</file>
         <file>icons/drive.png</file>
+        <file>icons/close.png</file>
+        <file>icons/file.png</file>
+        <file>icons/folder2.png</file>
+        <file>icons/subitem.png</file>
+        <file>icons/subitem2.png</file>
+        <file>icons/folder3.png</file>
     </qresource>
 </RCC>

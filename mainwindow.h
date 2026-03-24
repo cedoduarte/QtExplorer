@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <vector>
 #include <optional>
+#include <QFileInfo>
+#include <QModelIndex>
 
 #ifdef Q_OS_WIN
 #define MY_COMPUTER_DIR ":::{20D04FE0-3AEA-1069-A2D8-08002B30309D}"
@@ -14,6 +16,7 @@
 class QFileSystemModel;
 class QProgressBar;
 class QListWidgetItem;
+class QTreeWidgetItem;
 
 namespace Ui
 {
@@ -35,6 +38,11 @@ public:
         LocationRole = Qt::UserRole + 1
     };
 
+    enum FileTreeRoles
+    {
+        FilePathRole = Qt::UserRole + 1
+    };
+
     struct AdditionalInfo
     {
         QString fileSystem;
@@ -54,8 +62,14 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
 private slots:
+    void onListViewDoubleClicked(const QModelIndex &index);
     void onLocationItemClicked(QListWidgetItem *locationItem);
+    void on_actionClose_triggered();
 private:
+    void init();
+    void appendNewFileInfoInTreeWidget(const QFileInfo &fileInfo);
+    QTreeWidgetItem* createSubitem(const QString &text) const;
+    bool fileExistsInTreeWidget(const QString &absoluteFilePath) const;
     void appendDrives();
     void initDiskUsageBar();
     void displayDiskUsage(const Location &selectedLocation);
