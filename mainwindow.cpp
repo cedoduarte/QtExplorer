@@ -113,7 +113,7 @@ void MainWindow::displayDiskUsage(const Location_t &selectedLocation)
 
 void MainWindow::onLocationItemClicked(QListWidgetItem *locationItem)
 {
-    int locationIndex = locationItem->data(LocationRole).value<int>();
+    const int locationIndex = locationItem->data(LocationRole).value<int>();
     const Location_t &selectedLocation = m_locationList.at(locationIndex);
     if (selectedLocation.locationType == DRIVE)
     {
