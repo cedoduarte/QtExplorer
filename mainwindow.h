@@ -23,42 +23,61 @@ namespace Ui
 class MainWindow;
 }
 
+enum LocationType
+{
+    DIRECTORY,
+    DRIVE
+};
+
+enum LocationRoles
+{
+    LocationRole = Qt::UserRole + 1
+};
+
+enum FileTreeRoles
+{
+    FilePathRole = Qt::UserRole + 1
+};
+
+struct AdditionalInfo
+{
+    QString fileSystem;
+    qint64 bytesTotal;
+    qint64 bytesAvailable;
+};
+
+struct Location
+{
+    LocationType locationType;
+    QString displayText;
+    QString iconPath;
+    QString path;
+    std::optional<AdditionalInfo> additionalInfo;
+};
+
+struct FileTreeWidgetItem
+{
+    QTreeWidgetItem *topLevelFileItem;
+    QTreeWidgetItem *pathItem;
+    QTreeWidgetItem *birthTimeItem;
+    QTreeWidgetItem *groupItem;
+    QTreeWidgetItem *isExecutableItem;
+    QTreeWidgetItem *isHiddenItem;
+    QTreeWidgetItem *lastModifiedItem;
+    QTreeWidgetItem *lastReadItem;
+    QTreeWidgetItem *ownerItem;
+    QTreeWidgetItem *sizeItem;
+    QTreeWidgetItem *suffixItem;
+
+    FileTreeWidgetItem(const QFileInfo &fileInfo);
+    QTreeWidgetItem* createSubitem(const QString &text) const;
+    QList<QTreeWidgetItem*> children() const;
+};
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 public:
-    enum LocationType
-    {
-        DIRECTORY,
-        DRIVE
-    };
-
-    enum LocationRoles
-    {
-        LocationRole = Qt::UserRole + 1
-    };
-
-    enum FileTreeRoles
-    {
-        FilePathRole = Qt::UserRole + 1
-    };
-
-    struct AdditionalInfo
-    {
-        QString fileSystem;
-        qint64 bytesTotal;
-        qint64 bytesAvailable;
-    };
-
-    struct Location
-    {
-        LocationType locationType;
-        QString displayText;
-        QString iconPath;
-        QString path;
-        std::optional<AdditionalInfo> additionalInfo;
-    };
-
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
 private slots:
@@ -68,7 +87,6 @@ private slots:
 private:
     void init();
     void appendNewFileInfoInTreeWidget(const QFileInfo &fileInfo);
-    QTreeWidgetItem* createSubitem(const QString &text) const;
     bool fileExistsInTreeWidget(const QString &absoluteFilePath) const;
     void appendDrives();
     void initDiskUsageBar();

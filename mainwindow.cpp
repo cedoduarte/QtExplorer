@@ -48,34 +48,9 @@ void MainWindow::onListViewDoubleClicked(const QModelIndex &index)
     }
 }
 
-void MainWindow::appendNewFileInfoInTreeWidget(const QFileInfo &fileInfo)
+QList<QTreeWidgetItem*> FileTreeWidgetItem::children() const
 {
-    QString absoluteFilePath = fileInfo.absoluteFilePath();
-    if (fileExistsInTreeWidget(absoluteFilePath))
-    {
-        return;
-    }
-
-    QTreeWidgetItem *topLevelFileItem = new QTreeWidgetItem({ fileInfo.fileName() });
-    topLevelFileItem->setIcon(0, QIcon(":/icons/folder3.png"));
-    topLevelFileItem->setData(0, FilePathRole, absoluteFilePath);
-
-    QTreeWidgetItem *pathItem = createSubitem(QString("Path: %1").arg(absoluteFilePath));
-    QTreeWidgetItem *birthTimeItem = createSubitem(QString("Birth Time: %1").arg(fileInfo.birthTime().toString("yyyy-MM-dd hh:mm:ss")));
-    QTreeWidgetItem *groupItem = createSubitem(QString("Group: %1").arg(fileInfo.group()));
-    QTreeWidgetItem *isExecutableItem = createSubitem(QString("Is Executable: %1").arg(fileInfo.isExecutable() ? "Yes" : "No"));
-    QTreeWidgetItem *isHiddenItem = createSubitem(QString("Is Hidden: %1").arg(fileInfo.isHidden() ? "Yes" : "No"));
-    QTreeWidgetItem *lastModifiedItem = createSubitem(QString("Last Modified: %1").arg(fileInfo.lastModified().toString("yyyy-MM-dd hh:mm:ss")));
-    QTreeWidgetItem *lastReadItem = createSubitem(QString("Last Read: %1").arg(fileInfo.lastRead().toString("yyyy-MM-dd hh:mm:ss")));
-    QTreeWidgetItem *ownerItem = createSubitem(QString("Owner: %1").arg(fileInfo.owner()));
-
-    DiskUsage diskUsage;
-    QString fileSizeString = diskUsage.formattedDataSize(fileInfo.size());
-    QTreeWidgetItem *sizeItem = createSubitem(QString("Size: %1").arg(fileSizeString));
-
-    QTreeWidgetItem *suffixItem = createSubitem(QString("Suffix: %1").arg(fileInfo.suffix()));
-
-    topLevelFileItem->addChildren({
+    return {
         pathItem,
         birthTimeItem,
         groupItem,
@@ -86,16 +61,52 @@ void MainWindow::appendNewFileInfoInTreeWidget(const QFileInfo &fileInfo)
         ownerItem,
         sizeItem,
         suffixItem
-    });
-
-    ui->treeWidget->addTopLevelItem(topLevelFileItem);
+    };
 }
 
-QTreeWidgetItem* MainWindow::createSubitem(const QString &text) const
+FileTreeWidgetItem::FileTreeWidgetItem(const QFileInfo &fileInfo)
+{
+    QString absoluteFilePath = fileInfo.absoluteFilePath();
+
+    topLevelFileItem = new QTreeWidgetItem({ fileInfo.fileName() });
+    topLevelFileItem->setIcon(0, QIcon(":/icons/folder3.png"));
+    topLevelFileItem->setData(0, FilePathRole, absoluteFilePath);
+
+    pathItem = createSubitem(QString("Path: %1").arg(absoluteFilePath));
+    birthTimeItem = createSubitem(QString("Birth Time: %1").arg(fileInfo.birthTime().toString("yyyy-MM-dd hh:mm:ss")));
+    groupItem = createSubitem(QString("Group: %1").arg(fileInfo.group()));
+    isExecutableItem = createSubitem(QString("Is Executable: %1").arg(fileInfo.isExecutable() ? "Yes" : "No"));
+    isHiddenItem = createSubitem(QString("Is Hidden: %1").arg(fileInfo.isHidden() ? "Yes" : "No"));
+    lastModifiedItem = createSubitem(QString("Last Modified: %1").arg(fileInfo.lastModified().toString("yyyy-MM-dd hh:mm:ss")));
+    lastReadItem = createSubitem(QString("Last Read: %1").arg(fileInfo.lastRead().toString("yyyy-MM-dd hh:mm:ss")));
+    ownerItem = createSubitem(QString("Owner: %1").arg(fileInfo.owner()));
+
+    DiskUsage diskUsage;
+    QString fileSizeString = diskUsage.formattedDataSize(fileInfo.size());
+    sizeItem = createSubitem(QString("Size: %1").arg(fileSizeString));
+    suffixItem = createSubitem(QString("Suffix: %1").arg(fileInfo.suffix()));
+
+    topLevelFileItem->addChildren(children());
+}
+
+QTreeWidgetItem* FileTreeWidgetItem::createSubitem(const QString &text) const
 {
     QTreeWidgetItem *subitem = new QTreeWidgetItem({ text });
     subitem->setIcon(0, QIcon(":/icons/subitem.png"));
     return subitem;
+}
+
+void MainWindow::appendNewFileInfoInTreeWidget(const QFileInfo &fileInfo)
+{
+    QString absoluteFilePath = fileInfo.absoluteFilePath();
+    if (fileExistsInTreeWidget(absoluteFilePath))
+    {
+        return;
+    }
+
+    FileTreeWidgetItem *topLevelFileItem = new FileTreeWidgetItem(fileInfo);
+    ui->treeWidget->addTopLevelItem(topLevelFileItem->topLevelFileItem);
+    delete topLevelFileItem;
 }
 
 bool MainWindow::fileExistsInTreeWidget(const QString &absoluteFilePath) const
