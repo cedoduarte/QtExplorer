@@ -8,5 +8,5 @@ int main(int argc, char *argv[])
     a.setStyle("fusion");
     MainWindow w;
     w.show();
-    return QCoreApplication::exec();
+    return a.exec();
 }

@@ -2,12 +2,13 @@
 #define MAINWINDOW_H
 
 #include "location_t.h"
+#include "diskusage.h"
 
 #include <QMainWindow>
 #include <vector>
-#include <optional>
 #include <QFileInfo>
 #include <QModelIndex>
+#include <QStorageInfo>
 
 #ifdef Q_OS_WIN
 #define MY_COMPUTER_DIR ":::{20D04FE0-3AEA-1069-A2D8-08002B30309D}"
@@ -36,6 +37,18 @@ private slots:
     void onLocationItemClicked(QListWidgetItem *locationItem);
     void on_actionClose_triggered();
 private:
+    Location_t createDirectoryLocation(const QString &displayName, const QString &iconUri, const QString &path) const;
+    void showOrHideDiskBar(DiskUsage &diskUsage);
+    bool matchesFilePathAt(int topLevelItemIndex, const QString &absoluteFilePath) const;
+    void clearStatusBar();
+    void refreshDiskBar(const Location_t &selectedLocation);
+    QListWidgetItem* createLocationListWidgetItem(int locationIndex);
+    AdditionalInfo additionalInfoFromStorageInfo(const QStorageInfo &storage) const;
+    void appendDrive(const QStorageInfo &storage);
+    void appendLocationInLocationListWidget(int locationIndex);
+    void prepareAndShowDiskBar(const DiskUsage &diskUsage);
+    QString getDiskBarFormat(const QString &availableStr, const QString &totalStr, int percentage) const;
+    void displayOrHideDiskBar(const Location_t &selectedLocation);
     void init();
     void appendNewFileInfoInTreeWidget(const QFileInfo &fileInfo);
     bool fileExistsInTreeWidget(const QString &absoluteFilePath) const;

@@ -1,7 +1,9 @@
 C:/QtProjects/QtExplorer/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/QtExplorer_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/QtProjects/QtExplorer/mainwindow.h \
   C:/QtProjects/QtExplorer/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/QtExplorer_autogen/moc_predefs.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/QFileInfo \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/QLocale \
   C:/Qt/6.10.1/mingw_64/include/QtCore/QModelIndex \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/QStorageInfo \
   C:/Qt/6.10.1/mingw_64/include/QtCore/QString \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/q20functional.h \
@@ -44,6 +46,8 @@ C:/QtProjects/QtExplorer/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/QtExplorer_a
   C:/Qt/6.10.1/mingw_64/include/QtCore/qdatastream.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qdatetime.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qdebug.h \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/qdir.h \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/qdirlisting.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qendian.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qexceptionhandling.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qfile.h \
@@ -97,6 +101,7 @@ C:/QtProjects/QtExplorer/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/QtExplorer_a
   C:/Qt/6.10.1/mingw_64/include/QtCore/qsize.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qspan.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qstdlibdetection.h \
+  C:/Qt/6.10.1/mingw_64/include/QtCore/qstorageinfo.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qstring.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qstringalgorithms.h \
   C:/Qt/6.10.1/mingw_64/include/QtCore/qstringbuilder.h \
@@ -417,5 +422,6 @@ C:/QtProjects/QtExplorer/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/QtExplorer_a
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
   C:/QtProjects/QtExplorer/additionalinfo.h \
+  C:/QtProjects/QtExplorer/diskusage.h \
   C:/QtProjects/QtExplorer/globalenums.h \
   C:/QtProjects/QtExplorer/location_t.h

@@ -3,7 +3,9 @@ C:/QtProjects/QtExplorer/additionalinfo.h
 C:/QtProjects/QtExplorer/mainwindow.h
  mmc:Q_OBJECT
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/QFileInfo
+ mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/QLocale
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/QModelIndex
+ mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/QStorageInfo
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/QString
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/q17memory.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/q20functional.h
@@ -46,6 +48,8 @@ C:/QtProjects/QtExplorer/mainwindow.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qdatastream.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qdatetime.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qdebug.h
+ mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qdir.h
+ mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qdirlisting.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qendian.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qexceptionhandling.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qfile.h
@@ -99,6 +103,7 @@ C:/QtProjects/QtExplorer/mainwindow.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qsize.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qspan.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qstdlibdetection.h
+ mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qstorageinfo.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qstring.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qstringalgorithms.h
  mdp:C:/Qt/6.10.1/mingw_64/include/QtCore/qstringbuilder.h
@@ -420,6 +425,7 @@ C:/QtProjects/QtExplorer/mainwindow.h
  mdp:C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h
  mdp:C:/QtProjects/QtExplorer/additionalinfo.h
  mdp:C:/QtProjects/QtExplorer/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/QtExplorer_autogen/moc_predefs.h
+ mdp:C:/QtProjects/QtExplorer/diskusage.h
  mdp:C:/QtProjects/QtExplorer/globalenums.h
  mdp:C:/QtProjects/QtExplorer/location_t.h
  mdp:C:/QtProjects/QtExplorer/mainwindow.h
