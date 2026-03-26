@@ -6,15 +6,30 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1129</width>
-    <height>603</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Qt Explorer</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
+   <layout class="QGridLayout" name="gridLayout" rowstretch="0" columnstretch="0" rowminimumheight="0" columnminimumwidth="0">
+    <property name="leftMargin">
+     <number>6</number>
+    </property>
+    <property name="topMargin">
+     <number>6</number>
+    </property>
+    <property name="rightMargin">
+     <number>6</number>
+    </property>
+    <property name="bottomMargin">
+     <number>6</number>
+    </property>
+    <property name="spacing">
+     <number>6</number>
+    </property>
     <item row="0" column="0">
      <widget class="QSplitter" name="splitter">
       <property name="orientation">
@@ -22,14 +37,14 @@
       </property>
       <widget class="QListWidget" name="locationListWidget"/>
       <widget class="QListView" name="explorerListView"/>
-      <widget class="QTreeWidget" name="treeWidget">
+      <widget class="QTreeWidget" name="fileDetailTreeWidget">
        <column>
         <property name="text">
-         <string notr="true">Files</string>
+         <string notr="true">Files Details</string>
         </property>
         <property name="icon">
          <iconset resource="res.qrc">
-          <normaloff>:/icons/folder2.png</normaloff>:/icons/folder2.png</iconset>
+          <normaloff>:/icons/details.png</normaloff>:/icons/details.png</iconset>
         </property>
        </column>
       </widget>
@@ -42,7 +57,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1129</width>
+     <width>800</width>
      <height>22</height>
     </rect>
    </property>
@@ -52,9 +67,22 @@
     </property>
     <addaction name="actionClose"/>
    </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionPreferences"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="actionAbout_Qt"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuAbout"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionClose">
    <property name="icon">
     <iconset resource="res.qrc">
@@ -62,6 +90,24 @@
    </property>
    <property name="text">
     <string>Close</string>
+   </property>
+  </action>
+  <action name="actionPreferences">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/icons/preferences.png</normaloff>:/icons/preferences.png</iconset>
+   </property>
+   <property name="text">
+    <string>Preferences</string>
+   </property>
+  </action>
+  <action name="actionAbout_Qt">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/icons/qt.png</normaloff>:/icons/qt.png</iconset>
+   </property>
+   <property name="text">
+    <string>About Qt</string>
    </property>
   </action>
  </widget>

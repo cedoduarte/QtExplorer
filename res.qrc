@@ -1,21 +1,11 @@
 <RCC>
     <qresource prefix="/">
-        <file>icons/desktop.png</file>
-        <file>icons/documents.png</file>
-        <file>icons/downloads.png</file>
-        <file>icons/folder.png</file>
-        <file>icons/home.png</file>
-        <file>icons/movies.png</file>
-        <file>icons/music.png</file>
-        <file>icons/pictures.png</file>
-        <file>icons/temp.png</file>
-        <file>icons/computer.png</file>
-        <file>icons/drive.png</file>
         <file>icons/close.png</file>
-        <file>icons/file.png</file>
-        <file>icons/folder2.png</file>
-        <file>icons/subitem.png</file>
-        <file>icons/subitem2.png</file>
-        <file>icons/folder3.png</file>
+        <file>icons/preferences.png</file>
+        <file>icons/windows.png</file>
+        <file>icons/fusion.png</file>
+        <file>icons/text.png</file>
+        <file>icons/details.png</file>
+        <file>icons/qt.png</file>
     </qresource>
 </RCC>

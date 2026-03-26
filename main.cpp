@@ -1,12 +1,23 @@
 #include "mainwindow.h"
 
+#include <QSettings>
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    a.setStyle("fusion");
-    MainWindow w;
-    w.show();
-    return a.exec();
+    a.setApplicationName("QtExplorer");
+    a.setApplicationVersion("1.0");
+    a.setOrganizationName("DuarteCorporation");
+    a.setOrganizationDomain("www.duartecorporation.com");
+
+    QSettings settings;
+    settings.beginGroup("settings");
+    a.setStyle(settings.value("style").toString() == "Windows" ? "" : "Fusion");
+    settings.endGroup();
+
+    MainWindow mainWindow;
+    mainWindow.show();
+
+    return QCoreApplication::exec();
 }
