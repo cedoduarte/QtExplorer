@@ -26,9 +26,17 @@ private slots:
     void onLocationListWidgetItemClicked(QListWidgetItem *item);
     void onExplorerListViewItemClicked(const QModelIndex &index);
     void on_actionAbout_Qt_triggered();
+    void on_clearButton_clicked();
+
+    void on_removeButton_clicked();
+
 private:
     static QIcon getFolderIcon();
 
+    bool isTopLevelItem(QTreeWidgetItem *item) const;
+    void initialize();
+    void connectSlots();
+    void goFirstLocation();
     QTreeWidgetItem* createFileDetailTreeWidgetItem(const QString &text) const;
     QString formattedDataSize(qint64 bytes) const;
     bool fileDetailItemExists(const QString &path) const;

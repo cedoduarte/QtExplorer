@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 
     QSettings settings;
     settings.beginGroup("settings");
-    a.setStyle(settings.value("style").toString() == "Windows" ? "" : "Fusion");
+    a.setStyle(settings.value("style").toString());
     settings.endGroup();
 
     MainWindow mainWindow;
@@ -21,3 +21,7 @@ int main(int argc, char *argv[])
 
     return QCoreApplication::exec();
 }
+
+
+
+

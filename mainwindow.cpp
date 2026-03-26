@@ -5,13 +5,12 @@
 #include <QLocale>
 #include <QFileSystemModel>
 #include <QMessageBox>
-
 #include <QFileIconProvider>
 
 QIcon MainWindow::getFolderIcon()
 {
-    static QFileIconProvider provider;
-    static QIcon icon = provider.icon(QFileIconProvider::Folder);
+    static const QFileIconProvider provider;
+    static const QIcon icon = provider.icon(QFileIconProvider::Folder);
     return icon;
 }
 
@@ -93,7 +92,7 @@ QTreeWidgetItem* MainWindow::createFileDetailTreeWidgetItem(const QString &text)
 
 QTreeWidgetItem* MainWindow::createFileInfoTreeWidgetItem(const QModelIndex &index)
 {
-    const QFileInfo fileInfo = m_fileSystemModel->fileInfo(index);
+    const auto &fileInfo = m_fileSystemModel->fileInfo(index);
     auto *fileTopLevelItem = new QTreeWidgetItem;
     fileTopLevelItem->setText(0, fileInfo.fileName());
     fileTopLevelItem->setIcon(0, m_fileSystemModel->fileIcon(index));
@@ -134,12 +133,16 @@ void MainWindow::onExplorerListViewItemClicked(const QModelIndex &index)
     }
 }
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+void MainWindow::goFirstLocation()
 {
-    ui->setupUi(this);
+    if (ui->locationListWidget->count() > 0)
+    {
+        onLocationListWidgetItemClicked(ui->locationListWidget->item(0));
+    }
+}
 
+void MainWindow::initialize()
+{
     m_fileSystemModel = new QFileSystemModel(this);
     ui->explorerListView->setModel(m_fileSystemModel);
 
@@ -148,13 +151,22 @@ MainWindow::MainWindow(QWidget *parent)
 
     setWindowIcon(getFolderIcon());
 
+    connectSlots();
+    goFirstLocation();
+}
+
+void MainWindow::connectSlots()
+{
     connect(ui->locationListWidget, &QListWidget::itemClicked, this, &MainWindow::onLocationListWidgetItemClicked);
     connect(ui->explorerListView, &QListView::clicked, this, &MainWindow::onExplorerListViewItemClicked);
+}
 
-    if (ui->locationListWidget->count() > 0)
-    {
-        onLocationListWidgetItemClicked(ui->locationListWidget->item(0));
-    }
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+    initialize();
 }
 
 MainWindow::~MainWindow()
@@ -178,3 +190,29 @@ void MainWindow::on_actionAbout_Qt_triggered()
     QMessageBox::aboutQt(this, "Qt");
 }
 
+void MainWindow::on_clearButton_clicked()
+{
+    ui->fileDetailTreeWidget->clear();
+}
+
+bool MainWindow::isTopLevelItem(QTreeWidgetItem *item) const
+{
+    return item && item->parent() == nullptr;
+}
+
+void MainWindow::on_removeButton_clicked()
+{
+    auto *item = ui->fileDetailTreeWidget->currentItem();
+    if (item == nullptr)
+    {
+        return;
+    }
+    if (isTopLevelItem(item))
+    {
+        const int index = ui->fileDetailTreeWidget->indexOfTopLevelItem(item);
+        if (index >= 0)
+        {
+            delete ui->fileDetailTreeWidget->takeTopLevelItem(index);
+        }
+    }
+}

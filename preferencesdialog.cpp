@@ -3,15 +3,39 @@
 
 #include <QSettings>
 #include <QMessageBox>
+#include <QStyleFactory>
+#include <QDebug>
+
+void PreferencesDialog::initialize()
+{
+    populateStyleCombo();
+    loadSettings();
+}
+
+void PreferencesDialog::populateStyleCombo()
+{
+    const auto &styleList = QStyleFactory::keys();
+    for (const auto &styleName : styleList)
+    {
+        QString iconUrl = ":/icons/";
+        if (styleName.contains("windows", Qt::CaseInsensitive))
+        {
+            iconUrl += "windows.png";
+        }
+        else if (styleName.contains("fusion", Qt::CaseInsensitive))
+        {
+            iconUrl += "fusion.png";
+        }
+        ui->comboBox->addItem(QIcon(iconUrl), styleName);
+    }
+}
 
 PreferencesDialog::PreferencesDialog(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::PreferencesDialog)
 {
     ui->setupUi(this);
-    ui->comboBox->addItem(QIcon(":/icons/windows.png"), "Windows");
-    ui->comboBox->addItem(QIcon(":/icons/fusion.png"), "Fusion");
-    loadSettings();
+    initialize();
 }
 
 PreferencesDialog::~PreferencesDialog()
