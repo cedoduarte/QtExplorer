@@ -5,6 +5,7 @@
 
 #include <QMainWindow>
 #include <vector>
+#include <QIcon>
 
 class QFileSystemModel;
 class QTreeWidgetItem;
@@ -27,12 +28,9 @@ private slots:
     void onExplorerListViewItemClicked(const QModelIndex &index);
     void on_actionAbout_Qt_triggered();
     void on_clearButton_clicked();
-
     void on_removeButton_clicked();
-
 private:
-    static QIcon getFolderIcon();
-
+    QIcon getIconByDisplayName(const QString &displayName) const;
     bool isTopLevelItem(QTreeWidgetItem *item) const;
     void initialize();
     void connectSlots();

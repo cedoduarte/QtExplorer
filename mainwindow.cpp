@@ -1,17 +1,24 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "preferencesdialog.h"
+#include "iconproviderobject.h"
 
 #include <QLocale>
 #include <QFileSystemModel>
 #include <QMessageBox>
-#include <QFileIconProvider>
 
-QIcon MainWindow::getFolderIcon()
+QIcon MainWindow::getIconByDisplayName(const QString &displayName) const
 {
-    static const QFileIconProvider provider;
-    static const QIcon icon = provider.icon(QFileIconProvider::Folder);
-    return icon;
+    IconProviderObject iconProvider;
+    if (displayName.contains("My Computer", Qt::CaseInsensitive))
+    {
+        return iconProvider.getIcon(IconProviderObject::MyComputer);
+    }
+    else if (displayName.contains("Desktop", Qt::CaseInsensitive))
+    {
+        return iconProvider.getIcon(IconProviderObject::Desktop);
+    }
+    return iconProvider.getIcon(IconProviderObject::Folder);
 }
 
 std::vector<LocationObject> MainWindow::getLocationList() const
@@ -26,9 +33,9 @@ std::vector<LocationObject> MainWindow::getLocationList() const
     for (qsizetype index = 0; index < count; index++)
     {
         const int id = static_cast<int>(index) + 1;
-        const QString &path = standardPathList.at(index);
-        const QString &displayName = pathNames.at(index);
-        locationList.emplace_back(id, displayName, getFolderIcon(), path);
+        const auto &path = standardPathList.at(index);
+        const auto &displayName = pathNames.at(index);
+        locationList.emplace_back(id, displayName, getIconByDisplayName(displayName), path);
     }
 
     return locationList;
@@ -111,7 +118,7 @@ bool MainWindow::fileDetailItemExists(const QString &path) const
     const int count = ui->fileDetailTreeWidget->topLevelItemCount();
     for (int index = 0; index < count; index++)
     {
-        const QString iPath = ui->fileDetailTreeWidget->topLevelItem(index)->data(0, Qt::UserRole).toString();
+        const auto iPath = ui->fileDetailTreeWidget->topLevelItem(index)->data(0, Qt::UserRole).toString();
         if (path == iPath)
         {
             return true;
@@ -149,7 +156,8 @@ void MainWindow::initialize()
     m_locationList = getLocationList();
     displayLocationList();
 
-    setWindowIcon(getFolderIcon());
+    IconProviderObject iconProvider;
+    setWindowIcon(iconProvider.getIcon(IconProviderObject::Folder));
 
     connectSlots();
     goFirstLocation();

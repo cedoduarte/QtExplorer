@@ -23,6 +23,8 @@ set(PROJECT_SOURCES
         preferencesdialog.h
         preferencesdialog.cpp
         preferencesdialog.ui
+        iconproviderobject.h
+        iconproviderobject.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
