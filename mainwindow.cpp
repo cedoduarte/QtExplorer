@@ -3,18 +3,17 @@
 #include "preferencesdialog.h"
 #include "iconproviderobject.h"
 
-#include <QLocale>
 #include <QFileSystemModel>
 #include <QMessageBox>
 
 QIcon MainWindow::getIconByDisplayName(const QString &displayName) const
 {
     IconProviderObject iconProvider;
-    if (displayName.contains("My Computer", Qt::CaseInsensitive))
+    if (displayName.contains(MY_COMPUTER_DISPLAY_NAME, Qt::CaseInsensitive))
     {
         return iconProvider.getIcon(IconProviderObject::MyComputer);
     }
-    else if (displayName.contains("Desktop", Qt::CaseInsensitive))
+    else if (displayName.contains(DESKTOP_DISPLAY_NAME, Qt::CaseInsensitive))
     {
         return iconProvider.getIcon(IconProviderObject::Desktop);
     }

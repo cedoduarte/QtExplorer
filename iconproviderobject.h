@@ -4,6 +4,9 @@
 #include <QIcon>
 #include <QFileIconProvider>
 
+#define MY_COMPUTER_DISPLAY_NAME "My Computer"
+#define DESKTOP_DISPLAY_NAME "Desktop"
+
 class IconProviderObject
 {
 public:
